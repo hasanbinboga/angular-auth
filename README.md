@@ -1,7 +1,6 @@
 # angular-auth
 Authorized spa on Angular
 
-Before start to work together, we have a little test project just to see how you do things, like code quality, best practices, efficiency and speed.
  - Build a simple web site with Angular 11. You will provide a working “Vs Code” Buildable Project with build and run instructions.
  - Use WebPack and Bootstrap 4
  - Make frequent updates to GitHub with full description of commits
