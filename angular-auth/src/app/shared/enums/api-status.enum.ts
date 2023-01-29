@@ -1,6 +1,6 @@
 export enum ApiStatusEnum {
-    ok = 1,
-    error = 2
+    ok = 0,
+    error = 1
 }
 
 export const userActiveTypeDescriptions: Record<keyof typeof ApiStatusEnum, string> = {

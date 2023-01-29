@@ -1,258 +1,88 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
+ 
+@import url('https://fonts.googleapis.com/css?family=Numans');
 
-   
-@import url('https://fonts.googleapis.com/css?family=Mukta');
-body{
-  font-family: 'Mukta', sans-serif;
-	height:100vh;
-	min-height:550px;
-	background-image: url(http://www.planwallpaper.com/static/images/Free-Wallpaper-Nature-Scenes.jpg);
-	background-repeat: no-repeat;
-	background-size:cover;
-	background-position:center;
-	position:relative;
-    overflow-y: hidden;
-}
-a{
-  text-decoration:none;
-  color:#444444;
-}
-.login-reg-panel{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-	text-align:center;
-    width:70%;
-	right:0;left:0;
-    margin:auto;
-    height:400px;
-    background-color: rgba(236, 48, 20, 0.9);
-}
-.white-panel{
-    background-color: rgba(255,255, 255, 1);
-    height:500px;
-    position:absolute;
-    top:-50px;
-    width:50%;
-    right:calc(50% - 50px);
-    transition:.3s ease-in-out;
-    z-index:0;
-    box-shadow: 0 0 15px 9px #00000096;
-}
-.login-reg-panel input[type="radio"]{
-    position:relative;
-    display:none;
-}
-.login-reg-panel{
-    color:#B8B8B8;
-}
-.login-reg-panel #label-login, 
-.login-reg-panel #label-register{
-    border:1px solid #9E9E9E;
-    padding:5px 5px;
-    width:150px;
-    display:block;
-    text-align:center;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight: 600;
-    font-size: 18px;
-}
-.login-info-box{
-    width:30%;
-    padding:0 50px;
-    top:20%;
-    left:0;
-    position:absolute;
-    text-align:left;
-}
-.register-info-box{
-    width:30%;
-    padding:0 50px;
-    top:20%;
-    right:0;
-    position:absolute;
-    text-align:left;
-    
-}
-.right-log{right:50px !important;}
-
-.login-show, 
-.register-show{
-    z-index: 1;
-    display:none;
-    opacity:0;
-    transition:0.3s ease-in-out;
-    color:#242424;
-    text-align:left;
-    padding:50px;
-}
-.show-log-panel{
-    display:block;
-    opacity:0.9;
-}
-.login-show input[type="text"], .login-show input[type="password"]{
-    width: 100%;
-    display: block;
-    margin:20px 0;
-    padding: 15px;
-    border: 1px solid #b5b5b5;
-    outline: none;
-}
-.login-show input[type="button"] {
-    max-width: 150px;
-    width: 100%;
-    background: #444444;
-    color: #f9f9f9;
-    border: none;
-    padding: 10px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    float:right;
-    cursor:pointer;
-}
-.login-show a{
-    display:inline-block;
-    padding:10px 0;
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
 }
 
-.register-show input[type="text"], .register-show input[type="password"]{
-    width: 100%;
-    display: block;
-    margin:20px 0;
-    padding: 15px;
-    border: 1px solid #b5b5b5;
-    outline: none;
-}
-.register-show input[type="button"] {
-    max-width: 150px;
-    width: 100%;
-    background: #444444;
-    color: #f9f9f9;
-    border: none;
-    padding: 10px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    float:right;
-    cursor:pointer;
-}
-.credit {
-    position:absolute;
-    bottom:10px;
-    left:10px;
-    color: #3B3B25;
-    margin: 0;
-    padding: 0;
-    font-family: Arial,sans-serif;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    z-index: 99;
-}
-a{
-  text-decoration:none;
-  color:#2c7715;
-}
-    
-    
-    
-
-.wrap {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.container{
+height: 100%;
+align-content: center;
 }
 
-.text {
-  color: #4f008f;
-  display: inline-block;
-  margin-left: 5px;
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
 }
 
-.bounceball {
-  position: relative;
-  display: inline-block;
-  height: 37px;
-  width: 15px;
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
 }
 
-.bounceball:before {
-  position: absolute;
-  content: '';
-  display: block;
-  top: 0;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #7f2c69;
-  -webkit-transform-origin: 50%;
-  transform-origin: 50%;
-  -webkit-animation: bounce 500ms alternate infinite ease;
-  animation: bounce 500ms alternate infinite ease;
+.social_icon span:hover{
+color: white;
+cursor: pointer;
 }
 
-@-webkit-keyframes bounce {
-  0% {
-    top: 30px;
-    height: 5px;
-    border-radius: 60px 60px 20px 20px;
-    -webkit-transform: scaleX(2);
-    transform: scaleX(2);
-  }
-
-  35% {
-    height: 15px;
-    border-radius: 50%;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
-
-  100% {
-    top: 0;
-  }
+.card-header h3{
+color: white;
 }
 
-@keyframes bounce {
-  0% {
-    top: 30px;
-    height: 5px;
-    border-radius: 60px 60px 20px 20px;
-    -webkit-transform: scaleX(2);
-    transform: scaleX(2);
-  }
-
-  35% {
-    height: 15px;
-    border-radius: 50%;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
-
-  100% {
-    top: 0;
-  }
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
 }
 
-@media (max-width: 990px) {
-  .bg-login{
-    display: none;
-  }
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
 }
 
-.bg-login{
-  min-height: 100%;
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
 }
 
-.login-wrapper{
-  min-height: 100% !important;
+.remember{
+color: white;
 }
 
-.contents{
-  height: 100% !important;
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
 }
 
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
 
+.login_btn:hover{
+color: black;
+background-color: white;
+}
 
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
