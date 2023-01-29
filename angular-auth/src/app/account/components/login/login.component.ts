@@ -1,34 +1,45 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiStatusEnum } from 'src/app/shared/enums/api-status.enum';
 import { ApiRequest } from 'src/app/shared/interfaces/api-request.interface';
 import { ApiResult } from 'src/app/shared/interfaces/api-result.interface';
 import { AuthToken } from 'src/app/shared/interfaces/auth-token.interface';
-import { environment } from '../../../../environments/environment'; 
 import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
  
-  loginForm: FormGroup = this.formBuilder.group({
+  loginForm: FormGroup =this.formBuilder.group({
     email: ['', Validators.email],
     password: ['', Validators.required],
-  }); 
+  });
+
+ 
   loginResponse: any;
   loginButtonDisabled = false;
   currentUser: ApiResult<AuthToken> = { data : {userGrup:0, token:""}, status : ApiStatusEnum.error, error:""  };
+
+  serviceError:string ="";
 
   constructor(
     private accountService: AccountService, 
     public router: Router, 
     public formBuilder: FormBuilder,
     public route: ActivatedRoute, 
-  ) { }
+  ) { 
+
+    this.loginForm=this.formBuilder.group({
+      email: ['', Validators.email],
+      password: ['', Validators.required],
+    }); 
+
+  }
 
   ngOnInit() { 
   }
@@ -41,7 +52,6 @@ export class LoginComponent implements OnInit {
     this.loginButtonDisabled = true;
     
     const data = this.loginForm.getRawValue() as ApiRequest; 
-    
     this.accountService.login(data).subscribe(result => {
       this.loginButtonDisabled = false;
 
@@ -58,7 +68,7 @@ export class LoginComponent implements OnInit {
     let checkResult = true;
 
     if (result.status === ApiStatusEnum.error) {
-      alert(result.error);
+      this.serviceError = result.error;
       checkResult = false;
     }
     return checkResult;
@@ -66,23 +76,18 @@ export class LoginComponent implements OnInit {
     
   setLocalData(result: ApiResult<AuthToken>) {
   
-    localStorage.setItem('user_info', JSON.stringify(result.data));
+    localStorage.setItem('auth_token', JSON.stringify(result.data));
       
     this.router.navigate(['/']);
-    //kurumsal portal için ek güvenlik
-     {
-      
-      
-
-      // CommonHelper'daki global CurrentUser'a dönen sonuç tek bir sefer login olurken setleniyor.
+    
       this.setCurrentUser(result);
 
-    }
+    
     
   }
 
   setCurrentUser(result: ApiResult<AuthToken>) {
-    const val:any = localStorage.getItem('user_info') == null ? "": localStorage.getItem('user_info');
+    const val:any = localStorage.getItem('auth_token') == null ? "": localStorage.getItem('auth_token');
     if (this.isNullOrUndefined(val) || this.isNullOrWhiteSpace(val)) {
       return;
     }

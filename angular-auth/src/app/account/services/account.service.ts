@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 export class AccountService{
-  accountControllerName = 'Account';
+  accountControllerName = 'Authorize';
   loginMethodName = 'Login';
 
   constructor(
@@ -26,7 +26,7 @@ export class AccountService{
   }
 
   post<T>(controllerName: string, methodName: string, postedObject: any): Observable<ApiResult<T>> {
-    
-    return this.http.post<ApiResult<T>>(environment.apiUrl + controllerName + '/' + methodName, postedObject);
+    const url = environment.apiUrl + controllerName + '/' + methodName;
+    return this.http.post<ApiResult<T>>(url, postedObject);
   }
 }
