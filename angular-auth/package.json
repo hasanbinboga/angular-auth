@@ -9,6 +9,9 @@
     "test": "ng test"
   },
   "private": true,
+  "resolutions": {
+    "webpack": "^5.75.0"
+  },
   "dependencies": {
     "@angular/animations": "~13.0.0",
     "@angular/common": "~13.0.0",
