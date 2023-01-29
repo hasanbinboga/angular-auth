@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { AccountService } from '../../account/services/account.service'; 
+
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -10,7 +10,6 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): boolean {
 
     if (!this.isLoggedIn()) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       window.location.href = (this.getUiUrl() + '/account/login');
       return false;
     }
